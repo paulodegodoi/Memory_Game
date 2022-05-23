@@ -24,7 +24,7 @@ function restartGame() {
 let scoreGame = 0
 function finishGame() {
     const btnRestart = document.getElementById("btnRestart")
-    btnRestart.classList.add("show")
+    btnRestart.style.display = "block"
     btnRestart.addEventListener("click", restartGame)
 }
 

@@ -2,12 +2,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
     height: 100vh;
     display: flex;
-    background-color: black;
+    flex-direction: column;
+    background: linear-gradient(#000, #222, #444);
+    overflow: hidden;
+}
+
+.title {
+    color: #fff;
+    text-align: center;
+    margin-top: .5em;
 }
 
 .memory-game {
@@ -17,6 +26,7 @@ body {
     height: 640px;
     margin: auto;
     perspective: 1000px;
+    animation: zoom 1.2s;
 }
 
 .card {
@@ -35,12 +45,17 @@ body {
     transition: .3s;
 }
 
+.card:hover {
+    border: 1px solid #ff0000;
+}
+
 .card-front,.card-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    padding: 20px;
-    background-color: white;
+    padding: 10px;
+    object-fit: cover;
+    background-color: #fff;
     backface-visibility: hidden; /* retira o verso do elemento */
 }
 
@@ -60,14 +75,27 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    width: 120px;
+    width: 180px;
     height: 60px;
+    padding: 5px;
     font-size: 2rem;
-    border-radius: 5px;
+    border-radius: .7em;
     cursor: pointer;
     display: none;
+    background-color: #ffd700;
+    font-weight: bold;
 }
 
-.btn-restart.show {
-    display: block;
+.btn-restart:hover {
+    background-color: rgb(59, 59, 7);
+    color: #ff0000;
+}
+
+@keyframes zoom {
+    0%{
+        transform: scale(3);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
